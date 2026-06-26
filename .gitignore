@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# VS Code build output
+out/
+dist/
+
+# logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+
+# env
+.env
