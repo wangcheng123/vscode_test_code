@@ -1,16 +1,23 @@
 {
   "name": "ant-icon-helper",
-  "displayName": "Ant Icon Helper",
-  "version": "0.0.2",
+  "displayName": "ant icon Helper",
+  "version": "1.0.1",
   "publisher": "chengwang",
   "engines": {
     "vscode": "^1.90.0"
   },
+  "keywords": [
+    "vscode",
+    "extension",
+    "ant",
+    "icon",
+    "antd",
+    "antd icon"
+  ],
   "categories": [
     "Other"
   ],
-   "icon": "images/icon.png",
-
+  "icon": "images/icon.png",
   "activationEvents": [
     "onLanguage:typescriptreact",
     "onLanguage:javascriptreact"
@@ -24,6 +31,10 @@
       }
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wangcheng123/vscode_test_code.git"
+  },
   "scripts": {
     "compile": "node esbuild.js",
     "watch": "node esbuild.js --watch",
@@ -33,6 +44,7 @@
     "ts-morph": "^23.0.0"
   },
   "devDependencies": {
+    "@types/node": "^26.0.1",
     "@types/vscode": "^1.90.0",
     "esbuild": "^0.25.0",
     "typescript": "^5.8.0"

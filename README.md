@@ -1,135 +1,104 @@
-# Auto Ant Icon Helper
+# VSCode Test Code
 
-![VS Code](https://img.shields.io/badge/VSCode-Extension-blue)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)
-![React](https://img.shields.io/badge/React-Supported-61DAFB)
-![Ant Design](https://img.shields.io/badge/AntDesign-Icons-1677FF)
-
-Automatically generate Ant Design icon components and import statements while typing.
-
-🚀 Automatically generate Ant Design icon components and import statements while typing.
+🚀 A simple VS Code extension demo for automatically handling code snippets and icon imports.
 
 ---
 
 ## ✨ Features
 
-### ✅ Auto Generate Icon Component
-
-Type
-
-```text
-ArrowDownOutline-v
-```
-
-Automatically becomes
-
-```tsx
-<ArrowDownOutline />
-```
+- ⚡ Fast snippet transformation
+- 📦 Auto import handling
+- 🧠 Smart code insertion
+- 🔥 Lightweight & no config required
 
 ---
 
-### ✅ Auto Import
+## 🎬 Demo
 
-Automatically inserts
+> Replace with your own GIF if needed
 
-```tsx
-import { ArrowDownOutline } from '@ant-design/icons';
-```
-
-If the import already exists, only the missing icon will be added.
+![Demo](https://raw.githubusercontent.com/wangcheng123/vscode_test_code/stage/images/demo.gif)
 
 ---
 
-### ✅ No Duplicate Imports
-
-Already imported icons won't be added again.
-
----
-
-### ✅ Works With
-
-- React
-- TypeScript
-- JavaScript
-- TSX
-- JSX
-
----
-
-# 🎬 Demo
-
-> Replace the image below with your own GIF.
-
-![Demo](images/demo.gif)
-
----
-
-# 📷 Screenshot
-
-
----
-
-# 🚀 Usage
-
-## Step 1
-
-Type
-
-```text
-ArrowDownOutline-v
-```
-
----
-
-## Step 2
-
-The extension automatically converts it into
-
-```tsx
-<ArrowDownOutline />
-```
-
----
-
-## Step 3
-
-Automatically inserts
-
-```tsx
-import { ArrowDownOutline } from '@ant-design/icons';
-```
-
----
-
-# 💻 Example
+## 📸 Screenshots
 
 ### Before
 
-```tsx
-const App = () => {
-  return (
-    <div>
-      ArrowDownOutline-v
-    </div>
-  );
-};
-
-export default App;
+```text
+ArrowDownOutline-v
 ```
-
----
 
 ### After
 
 ```tsx
-import { ArrowDownOutline } from '@ant-design/icons';
+<ArrowDownOutline />
+```
 
+Automatically imports:
+
+```tsx
+import { ArrowDownOutline } from '@ant-design/icons';
+```
+
+---
+
+## 🚀 Usage
+
+### Step 1
+
+Type in your editor:
+
+```text
+ArrowDownOutline-v
+```
+
+---
+
+### Step 2
+
+The extension automatically converts it into:
+
+```tsx
+<ArrowDownOutline />
+```
+
+---
+
+### Step 3
+
+It will also automatically add import:
+
+```tsx
+import { ArrowDownOutline } from '@ant-design/icons';
+```
+
+If the import already exists, it will not duplicate it.
+
+---
+
+## 📦 Installation
+
+### From Marketplace
+
+1. Open VS Code
+2. Go to Extensions
+3. Search:
+   ```
+   VSCode Test Code
+   ```
+4. Click Install
+
+---
+
+## 🧩 Example
+
+### Input
+
+```tsx
 const App = () => {
   return (
-    <div>
-      <ArrowDownOutline />
-    </div>
+    ArrowDownOutline-v
   );
 };
 
@@ -138,97 +107,67 @@ export default App;
 
 ---
 
-# ⚡ Features
-
-- ✅ Auto replace `IconName-v`
-- ✅ Auto import icons
-- ✅ Prevent duplicate imports
-- ✅ Create import if it doesn't exist
-- ✅ Support existing import statements
-- ✅ Lightweight
-- ✅ No configuration required
-
----
-
-# 📦 Installation
-
-1. Open VS Code
-
-2. Open Extensions
-
-3. Search
-
-```
-Auto Ant Icon Helper
-```
-
-4. Click Install
-
----
-
-# 📂 Supported Import
+### Output
 
 ```tsx
 import { ArrowDownOutline } from '@ant-design/icons';
-```
 
-If there is no import statement, the extension will automatically create one.
+const App = () => {
+  return (
+    <ArrowDownOutline />
+  );
+};
 
----
-
-# ❤️ Why Use This Extension
-
-Without this extension
-
-```text
-Copy icon name
-
-↓
-
-Paste component
-
-↓
-
-Find import
-
-↓
-
-Add import manually
-```
-
-With this extension
-
-```text
-Type
-
-ArrowDownOutline-v
-
-↓
-
-Done ✅
+export default App;
 ```
 
 ---
 
-# 📝 Release Notes
+## ⚙️ Supported Environments
 
-## 1.0.0
+- VS Code
+- TypeScript
+- JavaScript
+- React (TSX / JSX)
+
+---
+
+## 📁 Project Structure
+
+```text
+src/
+images/
+out/
+package.json
+README.md
+```
+
+---
+
+## ❤️ Tips
+
+- Keep GIF under 5MB for better loading
+- Use `raw.githubusercontent.com` for images
+- Keep extension lightweight for better performance
+
+---
+
+## 📝 Changelog
+
+### 1.0.0
 
 - Initial release
-- Auto generate Ant Design icon components
-- Auto import icons
-- Prevent duplicate imports
+- Auto icon transform
+- Auto import handling
 
 ---
 
-# 📄 License
+## 📄 License
 
 MIT
 
 ---
 
-## ⭐ If you like this extension
+## ⭐ Support
 
-Please consider giving the project a ⭐ on GitHub.
-
-Happy Coding! 🚀
+If you like this extension, please consider giving it a ⭐ on GitHub.
