@@ -1,11 +1,29 @@
 import * as vscode from "vscode";
+import { addImport } from "./commands/addImport";
+import { IconCompletionProvider } from "./providers/IconCompletionProvider";
 
 export function activate(context: vscode.ExtensionContext) {
   console.log("🔥 Ant Icon Stable No Delete Trigger");
 
-  let timer: NodeJS.Timeout | undefined;
+  const completionProvider = new IconCompletionProvider();
+  let timer: ReturnType<typeof setTimeout> | undefined;
 
   context.subscriptions.push(
+    vscode.commands.registerCommand(
+      "ant-icon-helper.addImport",
+      async (iconName?: string) => {
+        if (!iconName) {
+          return;
+        }
+
+        await addImport(iconName);
+      }
+    ),
+    vscode.languages.registerCompletionItemProvider(
+      [{ language: "typescriptreact" }, { language: "javascriptreact" }],
+      completionProvider,
+      "-"
+    ),
     vscode.workspace.onDidChangeTextDocument((event) => {
       const editor = vscode.window.activeTextEditor;
       if (!editor) return;
@@ -16,6 +34,11 @@ export function activate(context: vscode.ExtensionContext) {
        * 🚨 核心修复 1：
        * 如果是删除行为 → 直接跳过
        */
+      // ❌ 批量改动（格式化、重构等系统行为）→ 直接跳过
+      if (event.contentChanges.length > 1) {
+        return;
+      }
+
       const change = event.contentChanges[0];
       if (!change) return;
 
@@ -32,6 +55,9 @@ export function activate(context: vscode.ExtensionContext) {
       if (timer) clearTimeout(timer);
 
       timer = setTimeout(() => {
+        // 触发前再确认当前激活编辑器没变，且弹框未在显示
+        if (vscode.window.activeTextEditor !== editor) return;
+
         const line = editor.document.lineAt(
           editor.selection.active.line
         ).text;
@@ -74,7 +100,7 @@ async function showQuickPick(
     ],
     {
       placeHolder: `Ant Icon Helper: ${iconName}`,
-      ignoreFocusOut: true,
+      ignoreFocusOut: false,
     }
   );
 
